@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %} {{ super() }} - Suporte {% endblock %}
+{% block content %}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-bottom: 100px;">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Scrum - Suporte</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <button class="btn btn-sm btn-outline-secondary" id="exportButton">Exportar para Excel</button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <form method="post" class="mb-3" id="filterForm">
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="cont_alert">
+                <ul class="list-unstyled">
+                    {% for category, message in messages %}
+                        <li class="alert alert-danger alert-dismissible fade show" role="alert" style="max-width: 520px;">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+      <div class="form-row">
+          <div class="col-md-4">
+              <label for="start_date">Start Date:</label>
+              <input type="date" class="form-control" id="start_date" name="start_date">
+          </div>
+          <div class="col-md-4">
+              <label for="end_date">End Date:</label>
+              <input type="date" class="form-control" id="end_date" name="end_date">
+          </div>
+          <div class="col-md-2">
+              <label>Status de Fechamento:</label>
+              <div class="btn-group" role="group" aria-label="Status de Fechamento">
+                  <input type="radio" class="btn-check" name="is_closed_option" id="is_closed_true" value="true" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="is_closed_true">Fechados</label>
+  
+                  <input type="radio" class="btn-check" name="is_closed_option" id="is_closed_false" value="false" autocomplete="off">
+                  <label class="btn btn-outline-primary" for="is_closed_false">Abertos</label>
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label class="invisible">Filter:</label>
+              <button type="submit" class="btn btn-primary btn-block">Filter</button>
+          </div>
+      </div>
+  </form>
+  
+    <div class="table-responsive">
+      
+      <table id="ticketTable" class="table table-bordered table-striped">
+        
+        <thead class="thead-light">
+          <tr>
+            <th>Ticket Number</th>
+            <th>Title</th>
+            <th>Client</th>
+            <th>Responsible</th>
+            <th>Created_Date</th>
+            <th>Update_date</th>
+            <th>call_duration</th>
+            <th>internship</th>
+            <th>appointments</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ticket in api_data %}
+          <tr>
+            <td>{{ ticket.ticket_number }}</td>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.client['name'] }}</td>
+            <td>{{ ticket.responsible.name if ticket.responsible else '' }}</td>
+            <td>{{ ticket.created_at }}</td>
+            <td>{{ ticket.updated_at }}</td>
+            <td>{{ calculate_duration(ticket.created_at, ticket.updated_at) }}</td>
+            <td>{{ ticket.stage['name']}}</td>
+            <td><a class="btn btn-primary"
+              href="{{ url_for('apontamentos', ticketNumber=ticket.ticket_number) }}">Apontamentos</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+  <div class="container mt-5">
+    <div class="row">
+        <!-- Primeiro gráfico -->
+        <div class="col-12 col-md-6">
+            <h1 class="text-center">Gráfico de Tickets</h1>
+            <div>{{ plot | safe }}</div>
+        </div>
+
+        <!-- Segundo gráfico -->
+        <div class="col-12 col-md-6">
+            <h1 class="text-center"> Tickets por atendente</h1>
+            {{ plot_responsible_on_date|safe }}
+            <!-- Adicione o gráfico de barras padrão aqui -->
+            <div>{{ plot|safe }}</div>
+        </div>
+    </div>
+</div>
+
+
+</main>
+
+
+
+{% endblock %}

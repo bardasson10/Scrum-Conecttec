@@ -1,0 +1,59 @@
+/* Estilo para o título */
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para os apontamentos */
+.apontamento-container {
+    display: flex;
+    flex-direction: column; /* Exibe os apontamentos em uma única coluna */
+    font-family: Arial, sans-serif; /* Define a fonte para Arial */
+    font-size: 28px; /* Define o tamanho da fonte para 18 pixels */
+}
+
+.apontamento {
+    border: 2px solid #102377;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px; /* Espaçamento entre os apontamentos */
+
+}
+
+/* Estilo para as informações do apontamento */
+.apontamento-info ul {
+    list-style: none; /* Remove os marcadores padrão da lista */
+    padding: 0; /* Remove o preenchimento padrão da lista */
+}
+
+.apontamento-info li {
+    background-color: #537fdf; /* Define a cor de fundo para cada item da lista */
+    color:  #ffffff;
+    padding: 8px; /* Adiciona um espaçamento interno para separar o conteúdo do fundo */
+    margin-bottom: 0px; /* Adiciona um espaçamento entre os itens da lista */
+    font-family: Arial, sans-serif; /* Define a fonte para Arial */
+    font-size: 21px; /* Define o tamanho da fonte para 18 pixels */
+}
+
+/* Estilo para as descrições dos apontamentos */
+.apontamento-descricao {
+    padding-top: 12px;
+    margin: bottom 5px; ;
+    font-family: Arial, sans-serif; /* Define a fonte para Arial */
+    font-size: 21px; /* Define o tamanho da fonte para 18 pixels */
+    background: linear-gradient(to right, #ccd9e7, #9ec5db); /* Gradiente de cor de fundo */
+}
+/* Estilo para os botões */
+.btn-dark {
+    background-color: #343a40;
+    color: #fff;
+    border-color: #343a40;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.btn-dark:hover {
+    background-color: #23272b;
+    border-color: #23272b;
+}
