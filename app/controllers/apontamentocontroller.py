@@ -21,9 +21,15 @@ def apontamentos(ticketNumber):
             for apontamento in data:
                 apontamento['beginning'] = datetime.strptime(apontamento['beginning'], "%Y-%m-%dT%H:%M:%S.%fZ")
                 apontamento['ending'] = datetime.strptime(apontamento['ending'], "%Y-%m-%dT%H:%M:%S.%fZ")
-
+                
                 # Calcular a diferença entre o início e o fim
                 diferenca = apontamento['ending'] - apontamento['beginning']
+                
+                #Formatar data
+                apontamento['beginning'] = datetime.strftime(apontamento['beginning'], "%d/%m/%Y %H:%M")
+                apontamento['ending'] = datetime.strftime(apontamento['ending'],"%H:%M")
+               
+                
 
                 # Armazenar a diferença como a duração do apontamento
                 apontamento['duracao'] = diferenca
