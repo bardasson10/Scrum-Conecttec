@@ -1,82 +1,100 @@
 /* Estilo para o título */
 h1 {
-    font-size: 24px;
-    color: #333;
+  font-size: 24px;
+  color: #333;
 }
 
-/* Estilo para os apontamentos */
-.apontamento-container {
-    display: flex;
-    flex-direction: column; /* Exibe os apontamentos em uma única coluna */
-    font-family: Arial, sans-serif; /* Define a fonte para Arial */
-    font-size: 28px; /* Define o tamanho da fonte para 18 pixels */
+
+.apontamento-container { /* Exibe os apontamentos em uma única coluna */
+  font-family: Arial, sans-serif; /* Define a fonte para Arial */
+  font-size: 28px; /* Define o tamanho da fonte para 18 pixels */
 }
 
 .apontamento {
-    border: 2px solid #102377;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px; /* Espaçamento entre os apontamentos */
-
+  border: 2px solid #102377;
+  background-color: #bbd5f9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px; /* Espaçamento entre os apontamentos */
 }
 
 /* Estilo para as informações do apontamento */
 .dados-cabecalho {
-    font-size: 28px; 
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-right: 10px;
+  font-size: 28px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  display: flex;
 }
 
 .dados2-cabecalho {
-    align-items: center;
-    justify-content: center;
-    margin-left: 12x;
-    margin-right: 80px;
-    display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-left: 12x;
+  margin-right: 80px;
+  
 }
 .dados3-cabecalho {
-    font-size: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 40px;
-    
-    
+  font-size: 22px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-left: 40px;
+}
+
+.dados4-cabecalho {
+  color: #ffff;
+  border-radius: 20px;
+  padding: 4px;
+  margin-left: 15px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #336ca5;
+  font-family: Arial, sans-serif;
 }
 
 /* Estilo para as descrições dos apontamentos */
 .apontamento-descricao {
-    padding-top: 12px;
-    padding: 8px;
-    margin: bottom 5px; ;
-    font-family: Arial, sans-serif; /* Define a fonte para Arial */
-    font-size: 21px; /* Define o tamanho da fonte para 18 pixels */
-    border-radius: 10px;
-    background: linear-gradient(to right, #ccd9e7, #9ec5db); /* Gradiente de cor de fundo */
+  padding-top: 12px;
+  padding: 8px;
+  margin: bottom 5px;
+  font-family: Arial, sans-serif; /* Define a fonte para Arial */
+  font-size: 22px; /* Define o tamanho da fonte para 18 pixels */
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: #98c0f6;
+   /* Gradiente de cor de fundo */
 }
 
 .truncated {
-    display: none;
+  display: none;
 }
 
 .displayflex {
-    display: flex;
-    margin-left: 1px;
-    margin-bottom: 5px;
+  display: flex;
+  margin-left: 2px;
+  margin-bottom: 5px;
 }
 /* Estilo para os botões */
 .btn-dark {
-    background-color: #343a40;
-    color: #fff;
-    border-color: #343a40;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 10px;
+  background-color: #343a40;
+  color: #fff;
+  border-color: #343a40;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
 }
 
 .btn-dark:hover {
-    background-color: #23272b;
-    border-color: #23272b;
+  background-color: #23272b;
+  border-color: #23272b;
+}
+
+.btn-expand {
+  background-color: #bbd5f9;
+  border: 0;
+  box-shadow: 0 0 0 0;
+  border-radius: 10px;
 }

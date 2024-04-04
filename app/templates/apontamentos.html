@@ -1,43 +1,45 @@
 {% extends 'base.html' %} {% block title %} {{ super() }} - Apontamentos {%
-endblock %} {% block content %}
-
-<main
-  class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
-  style="margin-bottom: 100px"
->
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/apontamentos.css') }}"
-  />
-  <div
-    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-  >
-    <h1>Detalhes do Apontamento</h1>
-  </div>
-
-  {% if data %}
-  <div class="apontamento-container">
-    {% for apontamento in data %}
-    <div class="apontamento">
-      <div class="displayflex">
-        <button class="btn-expand">+</button>
-        <!-- Botão para expandir/contrair -->
-        <p class="dados-cabecalho"><div class="dados2-cabecalho"><strong> Apontamento:{{ apontamento.ticket_number }}</div><div class="dados3-cabecalho"></p>{{ apontamento.user.name }}  {{ apontamento.beginning }} - {{ apontamento.ending }} {{ apontamento.duracao }}</strong></div></p>
-      </div>
-      <div class="apontamento-info truncated">
-      </div>
-      <div class="apontamento-descricao truncated">
-        <p><strong>Descrição:</strong> {{ apontamento.description }}</p>
+  endblock %} {% block content %}
+  
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-bottom: 100px">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/apontamentos.css') }}" />
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1>Detalhes do Apontamento</h1>
+    </div>
+  
+    {% if data %}
+    <div class="apontamento-container">
+      {% for apontamento in data %}
+      <div class="apontamento">
+        <div class="displayflex">
+          <button class="btn-expand">+</button>
+          <!-- Botão para expandir/contrair -->
+          <div class="dados-cabecalho">
+            <strong>
+              <div class="dados2-cabecalho">
+                Apontamento:{{ apontamento.ticket_number }}
+                <div class="dados3-cabecalho">
+                  {{ apontamento.user.name }} {{ apontamento.beginning }} - {{ apontamento.ending }}
+                  <div class="dados4-cabecalho">
+                    {{ apontamento.duracao }}
+            </strong>
+          </div>
+        </div>
       </div>
     </div>
+    </div>
+    <div class="apontamento-info truncated">
+    </div>
+    <div class="apontamento-descricao truncated">
+      <p><strong>Descrição:</strong> {{ apontamento.description }}</p>
+    </div>
+    </div>
     {% endfor %}
-  </div>
-  {% else %}
-  <p>Nenhum dado disponível.</p>
-  {% endif %}
-
-  <a class="btn btn-dark" href="{{ url_for('index') }}"
-    >voltar para página inicial</a
-  >
-</main>
-{% endblock %}
+    </div>
+    {% else %}
+    <p>Nenhum dado disponível.</p>
+    {% endif %}
+  
+    <a class="btn btn-dark" href="{{ url_for('index') }}">voltar para página inicial</a>
+  </main>
+  {% endblock %}
