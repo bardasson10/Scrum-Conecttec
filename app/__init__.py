@@ -6,4 +6,5 @@ app.config['SECRET_KEY'] = 'secret'
 
 # Importe seus módulos e views aqui
 from app.controllers import default
+from app.controllers import cadastropostocontroller
 from app.controllers import apontamentocontroller
